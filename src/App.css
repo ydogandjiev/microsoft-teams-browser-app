@@ -1,12 +1,22 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   height: 100%;
 }
 
 .Header {
   display: inline-flex;
+  flex: 0 0 auto;
   width: 100%;
 }
 
-.Button {
+.Header > .Button {
   margin: 0.4rem;
+}
+
+.Scroller {
+  flex: 1 1 auto;
+  width: 100%;
+  overflow-y: scroll;
 }

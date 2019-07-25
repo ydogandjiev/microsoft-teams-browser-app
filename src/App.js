@@ -71,7 +71,9 @@ class App extends Component {
             onClick={this.onClick}
           />
         </div>
-        <Iframe src={this.state.address} width="100%" height="100%" />
+        <div class="Scroller">
+          <Iframe src={this.state.address} width="100%" height="100%" />
+        </div>
       </div>
     );
   }

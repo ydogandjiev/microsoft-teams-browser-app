@@ -24,17 +24,27 @@ class App extends Component {
 
   onKeyDown = event => {
     if (event.key === "Enter") {
-      this.setState({
-        address: this.state.newAddress
-      });
+      this.navigate();
     }
   };
 
   onClick = event => {
-    this.setState({
-      address: this.state.newAddress
-    });
+    this.navigate();
   };
+
+  navigate() {
+    let address = this.state.newAddress;
+    if (address.startsWith("http://")) {
+      address = address.replace("http://", "https://");
+    } else if (!address.startsWith("https://")) {
+      address = "https://" + address;
+    }
+
+    this.setState({
+      newAddress: address,
+      address: address
+    });
+  }
 
   render() {
     return (
@@ -63,6 +73,7 @@ class App extends Component {
             placeholder="Type a URL..."
             onChange={this.onChange}
             onKeyDown={this.onKeyDown}
+            value={this.state.newAddress}
           />
           <Button
             className="Button"
